@@ -10,6 +10,17 @@
 body{
     background-image: url(../img/bg.jpg);
 }
+#hidden-bg {
+    background: #4c4777;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    pointer-events: none;
+    visibility: hidden;
+}
 section {
     width: 75%;
     margin: 120px auto 120px;
@@ -40,6 +51,65 @@ header .fa-bars {
 header .fa-bars:hover {
     color: #ee6588;
 }
+header nav {
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-image: linear-gradient(90deg, rgba(238, 101, 136, 0.9), rgba(246, 149, 96, 0.9));
+    display: flex;
+    flex-direction: column;
+    width: 375px;
+    z-index: 102;
+    visibility: hidden;
+    pointer-events: none;
+}
+header nav .fa {
+    color: rgba(255,255,255,0.83);
+    width: 20px;
+    margin-inline-start: auto;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px 50px 10px 0;
+}
+header nav .fa:hover {
+    color: #fff;
+}
+header nav ul {
+    list-style: none;
+    width: 80%;
+    height: 200px;
+    margin: 20px auto 0;
+}
+header nav button {
+    width: 80%;
+    margin: 0 auto;
+    cursor: pointer;
+    border: 1px solid #fff;
+    background-color: #fff;
+    margin-bottom: 20px;
+    padding: 15px 0;
+    border-radius: 8px;
+    color: #ee6588;
+    outline: none;
+}
+header nav button:nth-child(4) {
+    background-color: transparent;
+    color: #fff;
+}
+header nav button:nth-child(4):hover {
+    background-color: rgba(255,255,255,0.2);
+}
+header nav ul li {
+    padding-bottom: 20px;
+    margin-top: 10px;
+}
+header nav ul li a {
+    color: rgba(255,255,255,0.75);
+}
+header nav ul li a:hover {
+    color: #fff;
+}
 .main-content {
     background-image: url(../img/pic01.jpg);
     background-size: cover;
@@ -69,6 +139,7 @@ header .fa-bars:hover {
     cursor: pointer;
     border-radius: 8px;
     margin-top: 20px;
+    outline: none;
 }
 .main-content div button:hover {
     background-color: rgba(255,255,255,0.2);
@@ -138,6 +209,7 @@ header .fa-bars:hover {
     cursor: pointer;
     border-radius: 8px;
     margin-top: 20px;
+    outline: none;
 }
 .img-content  div:nth-child(1) div button:hover {
     background-color: rgba(255,255,255,0.2);
