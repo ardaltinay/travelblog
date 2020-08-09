@@ -1,0 +1,210 @@
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 1.65;
+}
+body{
+    background-image: url(../img/bg.jpg);
+}
+section {
+    width: 75%;
+    margin: 120px auto 120px;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 20px 40px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    align-items: center;
+}
+header a {
+    text-decoration: none;
+    color: #bbbbbb;
+    transition: color 0.4s ease-in-out;
+}
+header a:hover {
+    color: #ee6588;
+}
+header .fa-bars {
+    color: #bbbbbb;
+    cursor: pointer;
+    transition: color 0.4s ease-in-out;
+    font-size: 24px;
+}
+header .fa-bars:hover {
+    color: #ee6588;
+}
+.main-content {
+    background-image: url(../img/pic01.jpg);
+    background-size: cover;
+    position: relative;
+    text-align: center;
+}
+.main-content div {
+    background-image: linear-gradient(90deg, rgba(238, 101, 136, 0.9), rgba(246, 149, 96, 0.9));
+    display: inline-block;
+    border-radius: 6px;
+    padding: 50px 100px;
+    margin: 100px 0;
+}
+.main-content div h1 {
+    color: #fff;
+    font-size: 42px;
+    line-height: 50px;
+}
+.main-content div p {
+    color: #fff;
+}
+.main-content div button {
+    border: 2px solid #fff;
+    background:none;
+    color: #fff;
+    padding: 10px 30px;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+.main-content div button:hover {
+    background-color: rgba(255,255,255,0.2);
+}
+.icons-content {
+    background-color: #fff;
+    text-align: center;
+}
+.icons-content div {
+    display: inline-block;
+    padding: 50px 0;
+    width: 60%;
+}
+.icons-content div h2 {
+    color: #ee6588;
+    font-size: 32px;
+    padding: 10px;
+}
+.icons-content div p {
+    color: #656565;
+    width: 80%;
+    margin:auto;
+}
+.icons-content div ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 50px 0;
+}
+.icons-content div ul li .fa {
+    font-size: 40px;
+    color: #ee6588;
+    border: 1px solid #d3d3d3;
+    border-radius: 50%;
+    padding: 30px;
+}
+.icons-content div ul li .fa hr {
+    border: 1px solid #d3d3d3;
+    width: 44px;
+    transform: translate(77px,-20px);
+}
+.img-content {
+    display: flex;
+}
+.img-content > div:nth-child(1) {
+    background-image: linear-gradient(90deg, rgba(238, 101, 136, 0.9), rgba(246, 149, 96, 0.9));
+    width: calc(100% / 2);
+    display: flex;
+}
+.img-content > div:nth-child(1) > div {
+    width: 70%;
+    margin: auto;
+}
+.img-content  div:nth-child(1) div h2 {
+    color: #fff;
+    font-size: 32px;
+}
+.img-content  div:nth-child(1) div p {
+    color: #fff;
+    opacity: 0.75;
+}
+.img-content  div:nth-child(1) div button {
+    border:2px solid #fff;
+    background:none;
+    color: #fff;
+    padding: 15px 30px;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+.img-content  div:nth-child(1) div button:hover {
+    background-color: rgba(255,255,255,0.2);
+}
+.img-content  div:nth-child(2) {
+    width: calc(100% / 2);
+}
+.img-content  div:nth-child(2) img {
+    width: 100%;
+    height: 100%;
+}
+.icons-info-content {
+    background-color: #fff;
+}
+.icons-info-content div {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding: 75px 0;
+}
+.icons-info-content div h2 {
+    color: #ee6588;
+    font-size: 32px;
+    padding-bottom: 10px;
+}
+.icons-info-content div p {
+    color: #656565;
+}
+.icons-info-content div ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+.icons-info-content div ul li p {
+    padding-top: 20px;
+}
+.icons-info-content div ul li .fa {
+    font-size: 24px;
+    color: #ee6588;
+    border: 1px solid #d3d3d3;
+    border-radius: 50%;
+    padding: 15px;
+}
+.icons-info-content div ul li hr {
+    border: 0.5px solid #d3d3d3;
+    width: 150px;
+    transform: translate(150px,10px) rotateZ(90deg);
+}
+footer {
+    background-color: #f1f1f1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 35px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+footer div {
+    color: #bbbbbb;
+}
+footer div .fa {
+    padding-left: 10px;
+    cursor: pointer;
+    transition: color 0.4s ease-in-out;
+}
+footer div .fa:hover {
+    color: #ee6588;
+}
+
