@@ -1,4 +1,4 @@
-// navbara tıklayınca gelen fonksiyon
+// navbara tıklayınca çalışan fonksiyon
 var navbar = document.querySelector("header > i");
 navbar.onclick = function onClick () {
 	$("#hidden").hide().fadeIn(1200);
@@ -12,9 +12,17 @@ navbar.onclick = function onClick () {
 // çarpı işaretiyle kapatılması
 var navbar_close = document.querySelector("#hidden > i");
 navbar_close.onclick = function closeClick () {
-	$("#hidden").show().fadeOut(1000);
-	$("#hidden-bg").show().fadeOut(1000)
+	$("#hidden").show().fadeOut(500);
+	$("#hidden-bg").show().fadeOut(500)
 };
 
 // boş alana tıklayınca kapatılması
-// var hidden_bg_close = document.querySelector("#hidden-bg");
+$("#hidden-bg").click(function closeNavbar () {
+	$("#hidden").show().fadeOut(500);
+	$("#hidden-bg").show().fadeOut(500)
+});
+
+// animation
+$("document").ready(function animation () {
+	$(".main-content div").hide().fadeIn(1000);
+});

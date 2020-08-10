@@ -23,7 +23,7 @@ body{
 }
 section {
     width: 75%;
-    margin: 120px auto 120px;
+    margin: 120px auto;
 }
 header {
     display: flex;
@@ -113,7 +113,6 @@ header nav ul li a:hover {
 .main-content {
     background-image: url(../img/pic01.jpg);
     background-size: cover;
-    position: relative;
     text-align: center;
 }
 .main-content div {
