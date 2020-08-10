@@ -5,14 +5,13 @@ navbar.onclick = function onClick () {
     $("#hidden").css({"visibility": "visible", "pointer-events": "all"});
     // $("#hidden").fadeIn(1200);
     // $("#hidden").css({"display": "flex", "pointer-events": "all"}); // nav display should be none, visibility should be visible
-    $("#hidden-bg").css({"pointer-events": "all", "visibility": "visible"})
-    $("#hidden-bg").hide().fadeIn(1200);
+    $("#hidden-bg").fadeIn(1200);
 };
 
 // close function
 function close_box () {
-    $("#hidden").show().fadeOut(500);
-    $("#hidden-bg").show().fadeOut(500)
+    $("#hidden").fadeOut(500);
+    $("#hidden-bg").fadeOut(500)
 }
 
 // navbar onclick
@@ -27,6 +26,13 @@ $("#hidden-bg").click(function closeNavbar () {
 });
 
 // animation
-$("document").ready(function animation () {
+$(document).ready(function animation () {
     $(".main-content div").hide().fadeIn(1000);
+});
+
+// resize window function
+$(window).on("resize", function () {
+    if ($(window).width() <= 1300) {
+        $("hr").hide();
+    }
 });

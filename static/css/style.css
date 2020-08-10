@@ -18,8 +18,8 @@ body{
     top: 0;
     left: 0;
     z-index: 100;
-    pointer-events: none;
-    visibility: hidden;
+    pointer-events: all;
+    display: none;
     opacity: 0.75;
 }
 section {
@@ -280,3 +280,66 @@ footer div .fa:hover {
     color: #ee6588;
 }
 
+/* responsive */
+@media (max-width: 575.98px) {
+    .main-content div h1 {
+        font-size: 30px;
+    }
+    .main-content div p {
+        font-size: 14px;
+    }
+    .main-content div button {
+        padding: 7px 12px;
+        border: 1px solid #fff;
+    }
+    .icons-content div h2 {
+        font-size: 26px;
+    }
+    .icons-content div p {
+        font-size: 14px;
+    }
+    .icons-content div ul {
+        flex-wrap: wrap;
+    }
+    .icons-content div ul li .fa {
+        font-size: 30px;
+        padding: 15px;
+    }
+    .icons-content div ul li .fa hr {
+        display: none;
+    }
+    .img-content div:nth-child(1) div h2 {
+        font-size: 26px;
+    }
+    .img-content div:nth-child(1) div p {
+        font-size: 14px;
+    }
+    .img-content div:nth-child(1) div button {
+        padding: 7px 12px;
+        border: 1px solid #fff;
+        margin: 5px 0;
+    }
+    .icons-info-content div h2 {
+        font-size: 26px;
+    }
+    .icons-info-content div p {
+        font-size: 14px;
+    }
+    .icons-info-content div ul {
+        flex-wrap: wrap;
+    }
+    .icons-info-content div ul li .fa {
+        font-size: 22px;
+        padding: 13px;
+    }
+    .icons-info-content div ul li hr {
+        display: none;
+    }
+    footer div {
+        font-size: 14px;
+    }
+    footer div .fa {
+        font-size: 14px;
+        padding-left: 8px;
+    }
+}
