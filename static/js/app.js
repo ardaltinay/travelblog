@@ -68,7 +68,7 @@ window.onload = function onLoad () {
             removeClassFromArticles(articles);
             articles[index].classList.add("active");
 
-            slide_i = -(295 * 2 + (indicators.length -3) * 515);
+            /* slide_i = -(295 * 2 + (indicators.length -3) * 515);
             if (index == 0) {
                 $(".slider").animate({"left": 0}, 1000);
             } else if (index == 1) {
@@ -77,7 +77,19 @@ window.onload = function onLoad () {
                 $(".slider").animate({"left": index * (-515) + 220 }, 1000);
             } else if (index == indicators.length - 1) {
                 $(".slider").animate({"left": slide_i}, 1000)
+            } */
+
+            slider_wrapper_width = $('.slider-wrapper').width();
+            article_width = $('.slider-wrapper article').width();
+            article_margin = parseInt( $('.slider-wrapper article').css('marginLeft'));
+            slide_i = ( (slider_wrapper_width/2-article_width/2)-(index*(article_width+article_margin)+article_margin) );
+            if (index == 0) {
+                slide_i = 0;
+            } else if (index == indicators.length - 1) {
+                slide_i = -(index+1)*(article_width+article_margin)+slider_wrapper_width-article_margin;
             }
+            $(".slider").animate({"left": slide_i}, 1000);
+
         });
     });
     slider.children('article').each(function (index) {
