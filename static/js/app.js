@@ -31,124 +31,111 @@ $(document).ready(function animation () {
 });
 
 // SLİDER CAROUSEL
-// variables
-var indicators = $(".slider-content .slider-wrapper .indicators a");
-var articles = $(".slider-content .slider-wrapper .slider article");
 
-// function that is run when page onload
+
+// functions
+function removeClassFromIndicators (indicators) {
+    for (var i = 0; i < indicators.length; i++) {
+        indicators[i].classList.remove("active");
+    }
+}
+function removeClassFromArticles (articles) {
+    for (var i = 0; i < articles.length; i++) {
+        articles[i].classList.remove("active");
+    }
+}
+
+
+// function that is run when page onload, variables
 window.onload = function onLoad () {
+    var slider = $(".slider-content .slider-wrapper .slider");
+    var articles = $(".slider-content .slider-wrapper .slider article");
     articles[0].classList.add("active");
-    indicators[0].classList.add("active");
-};
+    $indicators_div = $('<div class="indicators" />').appendTo(".slider-wrapper")
 
-//  functions that is run when clicks indicators
-indicators[0].onclick = function clickIndicators () {
-    $(".slider").animate({"left": 0}, 1000); // first 295 px then add 515 px
+    for (var i = 0; i < articles.length; i++) {
+        $('<a></a>').appendTo($indicators_div);
+    }
+
+    var indicators = $(".slider-content .slider-wrapper .indicators a");
     indicators[0].classList.add("active");
-    if (indicators[0].classList.contains("active")) {
-        for (var i = 1; i < 5; i++) {
-            indicators[i].classList.remove("active");
-        }
-    }
-    articles[0].classList.add("active");
-    if (articles[0].classList.contains("active")) {
-        for (var i = 1; i < 5; i++) {
-            articles[i].classList.remove("active");
-        }
-    }
+
+    $indicators_div.children('a').each(function (index) {
+        $(this).click(function () {
+            removeClassFromIndicators(indicators);
+            $(this).addClass("active");
+
+            removeClassFromArticles(articles);
+            articles[index].classList.add("active");
+
+            slide_i = -(295 * 2 + (indicators.length -3) * 515);
+            if (index == 0) {
+                $(".slider").animate({"left": 0}, 1000);
+            } else if (index == 1) {
+                $(".slider").animate({"left": -295}, 1000);
+            } else if (1 < index && index < indicators.length - 1) {
+                $(".slider").animate({"left": index * (-515) + 220 }, 1000);
+            } else if (index == indicators.length - 1) {
+                $(".slider").animate({"left": slide_i}, 1000)
+            }
+        });
+    });
+    slider.children('article').each(function (index) {
+        $(this).click(function () {
+            removeClassFromIndicators(indicators);
+            indicators[index].classList.add("active");
+
+            removeClassFromArticles(articles);
+            $(this).addClass("active");
+
+            slide_i = -(295 * 2 + (indicators.length -3) * 515);
+            if (index == 0) {
+                $(".slider").animate({"left": 0}, 1000);
+            } else if (index == 1) {
+                $(".slider").animate({"left": -295}, 1000);
+            } else if (1 < index && index < indicators.length - 1) {
+                $(".slider").animate({"left": index * (-515) + 220 }, 1000);
+            } else if (index == indicators.length - 1) {
+                $(".slider").animate({"left": slide_i}, 1000)
+            }
+        });
+    });
 };
-indicators[1].onclick = function clickIndicators () {
-    $(".slider").animate({"left": -295}, 1000);
-    indicators[1].classList.add("active");
-    if (indicators[1].classList.contains("active")) {
-        for (var i = 0; i < 5; i++) {
-            if (i == 1) {
-                continue;
-            }
-            indicators[i].classList.remove("active");
-        }
-    }
-    articles[1].classList.add("active");
-    if (articles[1].classList.contains("active")) {
-        for (var i = 0; i < 5; i++) {
-            if (i == 1) {
-                continue;
-            }
-            articles[i].classList.remove("active");
-        }
-    }
-};
-indicators[2].onclick = function clickIndicators () {
-    $(".slider").animate({"left": -810}, 1000);
-    indicators[2].classList.add("active");
-    if (indicators[2].classList.contains("active")) {
-        for (var i = 0; i < 5; i++) {
-            if (i == 2) {
-                continue;
-            }
-            indicators[i].classList.remove("active");
-        }
-    }
-    articles[2].classList.add("active");
-    if (articles[2].classList.contains("active")) {
-        for (var i = 0; i < 5; i++) {
-            if (i == 2) {
-                continue;
-            }
-            articles[i].classList.remove("active");
-        }
-    }
-};
-indicators[3].onclick = function clickIndicators () {
-    $(".slider").animate({"left": -1325}, 1000);
-    indicators[3].classList.add("active");
-    if (indicators[3].classList.contains("active")) {
-        for (var i = 0; i < 5; i++) {
-            if (i == 3) {
-                continue;
-            }
-            indicators[i].classList.remove("active");
-        }
-    }
-    articles[3].classList.add("active");
-    if (articles[3].classList.contains("active")) {
-        for (var i = 0; i < 5; i++) {
-            if (i == 3) {
-                continue;
-            }
-            articles[i].classList.remove("active");
-        }
-    }
-};
-indicators[4].onclick = function clickIndicators () {
-    $(".slider").animate({"left": -1620}, 1000);
-    indicators[4].classList.add("active");
-    if (indicators[4].classList.contains("active")) {
-        for (var i = 0; i < 4; i++) {
-            indicators[i].classList.remove("active");
-        }
-    }
-    articles[4].classList.add("active");
-    if (articles[4].classList.contains("active")) {
-        for (var i = 0; i < 4; i++) {
-            articles[i].classList.remove("active");
-        }
-    }
-};
+    //  functions that is run when clicks indicators
+    /*indicators[0].onclick = function clickIndicators () {
+        $(".slider").animate({"left": 0}, 1000); // first 295 px then add 515 px
+
+    };
+    indicators[1].onclick = function clickIndicators () {
+        $(".slider").animate({"left": -295}, 1000);
+
+    };
+    indicators[2].onclick = function clickIndicators () {
+        $(".slider").animate({"left": -810}, 1000);
+
+    };
+    indicators[3].onclick = function clickIndicators () {
+        $(".slider").animate({"left": -1325}, 1000);
+
+    };
+    indicators[4].onclick = function clickIndicators () {
+        $(".slider").animate({"left": -1620}, 1000);
+
+    };*/
 
 
 
 
 // homework-1
-function reverseString(str) {
+function reverseString (str) {
     var newString = str.split("").reverse().join("");
     return newString;
 };
 
 // homework-2
-function convertToSlug(text) {
-    var from = "üöıç·/_,:;";
-    var to   = "uoic------";
+function convertToSlug (text) {
+    var from = "üöıçğ·/_,:;ÇĞ";
+    var to   = "uoicg------cg";
     for (var i = 0, l = from.length; i < l; i++) {
         text = text.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
     }
@@ -161,10 +148,11 @@ function convertToSlug(text) {
 // homework-3
 function degreeConverterF (deg) {
     var newValue = deg * 1.8 + 32;
-    return deg + " °C = " + newValue + " °F";
+    // return deg + " °C = " + newValue + " °F";
+    return `${deg} °C = ${newValue} °F`;
 };
 
-// homework-4
+// homework-4            // document.referrer for previous URL
 function getURL () {     // window.location.pathname --> without https
     return document.URL; // window.location.href --> same result
 };
@@ -173,6 +161,11 @@ function getURL () {     // window.location.pathname --> without https
 function getExtension (name) {
     var fileExtension = /\.[0-9a-z]+$/i;
     return name.match(fileExtension)[0];
+};
+
+function getExtension2 (name) {
+    var words = name.split(".");
+    return words[words.length-1];
 };
 
 // homework-6
