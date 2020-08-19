@@ -431,6 +431,9 @@ footer div .fa:hover {
         height: 75px;
         padding: 18px;
     }
+    .icons-content > div.hidden-div > h2 {
+        padding-top: 30px;
+    }
     .img-content {
         flex-wrap: wrap;
     }
@@ -445,6 +448,9 @@ footer div .fa:hover {
     }
     .img-content div:nth-child(2) {
         min-height: 250px;
+    }
+    .slider-content .slider-wrapper .slider article {
+        width: 275px;
     }
     .icons-info-content div h2 {
         font-size: 26px;
