@@ -10,6 +10,15 @@
 body{
     background-image: url(../img/bg.jpg);
 }
+body .hidden-modal-bg {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    opacity: 0.7;
+    background-color: rgba(213, 213, 213, 0.7);
+}
 #hidden-bg {
     background: #4c4777;
     width: 100%;
@@ -39,6 +48,29 @@ header a {
     text-decoration: none;
     color: #bbbbbb;
     transition: color 0.4s ease-in-out;
+}
+header div {
+    position: relative;
+}
+header div ul {
+    position: absolute;
+    list-style: none;
+    background-color: #fff;
+    top: 49px;
+    display: none;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+header div ul a li {
+    padding: 10px 100px 10px 10px;
+    cursor: pointer;
+}
+header div ul a li:hover {
+    background-color: #fafafa;
+    transition: background-color 0.4s ease-in-out;
+}
+header > div > a {
+    margin-right: 20px;
+    padding: 20px 20px 20px 10px;
 }
 header a:hover {
     color: #ee6588;
@@ -153,6 +185,28 @@ header nav ul li a:hover {
     padding: 50px 0;
     width: 60%;
 }
+.icons-content .hidden-div {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid #ee6588;
+    background-color: #fff;
+    width: auto;
+    padding: 20px 0;
+    z-index: 102;
+}
+.icons-content .hidden-div .close {
+    position: absolute;
+    font-size: 40px;
+    right: 40px;
+    top: 0;
+    cursor: pointer;
+}
+.icons-content .hidden-div li {
+    list-style: none;
+}
 .icons-content div h2 {
     color: #ee6588;
     font-size: 32px;
@@ -168,6 +222,10 @@ header nav ul li a:hover {
     display: flex;
     justify-content: space-around;
     padding: 50px 0;
+}
+.icons-content div ul li:nth-child(n) {
+    list-style: none;
+    margin-top: 10px;
 }
 .icons-content div ul li .fa {
     font-size: 36px;
@@ -188,6 +246,14 @@ header nav ul li a:hover {
     width: 59px;
     height: 1px;
     background-color: #d5d5d5;
+}
+.icons-content div ul li:nth-child(n) a {
+    display: inline-block;
+    cursor: pointer;
+}
+.icons-content div.hidden-div li a i {
+    font-size: 36px;
+    color: #ee6588;
 }
 .img-content {
     display: flex;

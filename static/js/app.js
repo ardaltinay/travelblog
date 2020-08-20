@@ -1,5 +1,5 @@
 // function that is run when click on navbar
-var navbar = document.querySelector("header > i");
+var navbar = document.querySelector("header > div > i");
 navbar.onclick = function onClick () {
     $("#hidden").hide().fadeIn(1200);
     $("#hidden").css({"visibility": "visible", "pointer-events": "all"});
@@ -31,63 +31,67 @@ $(document).ready(function animation () {
 });
 
 
+// languages mouse over function
+var languages = $("header > div > a");
+var hiddenUL = $("header > div > ul");
+languages.hover(function showUL () {
+    hiddenUL.slideDown();
+}, function hideUL () {
+    hiddenUL.slideUp();
+});
+
+hiddenUL.hover(function () {
+    hiddenUL.stop().slideDown();
+}, function () {
+    hiddenUL.slideUp();
+});
+
+
+
 // MODAL POPUP BOX
-// create <a> tags for parents i and select their parents li
-$(".icons-content > div > ul > li:nth-child(n) > i").wrap("<a></a>");
-var createA = $(".icons-content > div > ul > li:nth-child(n) > a");
 var selectLi = $(".icons-content > div > ul > li:nth-child(n)");
-selectLi.css({"list-style": "none", "margin-top": "10px"});
-createA.css({"display": "inline-block", "cursor": "pointer"});
 
 // create a hidden div
 $(".icons-content").append("<div class='hidden-div'></div>");
 var hiddenDiv = $(".icons-content .hidden-div");
-hiddenDiv.css({"display": "none", "position": "fixed", "left": "50%", "top": "50%",
-    "transform": "translate(-50%, -50%)", "border": "2px solid #ee6588",
-    "background-color": "#fff", "width": "auto", "padding": "20px 0"});
 
 // create a hidden background
 $("body").prepend("<div class='hidden-modal-bg'></div>");
 var hiddenModalBg = $("body .hidden-modal-bg");
-hiddenModalBg.css({"position": "fixed", "display": "none", "width": "100%",
-    "height": "100%", "top": "0", "opacity": "0.7",
-    "background-color": "rgba(213, 213, 213, 0.7)"})
 
 // functions
 function closeModal () {
-    $(".icons-content .hidden-div .close").click(function clickClose () {
-        hiddenDiv.hide(500);
-        hiddenModalBg.fadeOut();
-        hiddenDiv.empty();
-        selectLi.css("pointer-events", "all");
-    });
-    hiddenModalBg.click(function clickBgClose () {
-        hiddenDiv.hide(500);
-        hiddenModalBg.fadeOut();
-        hiddenDiv.empty();
-        selectLi.css("pointer-events", "all");
-    });
+    hiddenDiv.hide(500);
+    hiddenModalBg.fadeOut();
+    hiddenDiv.empty();
+    selectLi.css("pointer-events", "all");
 };
+
+function openModal () {
+    hiddenDiv.fadeIn();
+    hiddenModalBg.fadeIn();
+    selectLi.css("pointer-events", "none"); // for block more than 1 <li> in hidden-div
+    hiddenDiv.append("<span class='close'>&times;</span>", "<h2>Nisl feugiat adipiscing</h2>",
+        "<p>Lorem ipsum dolor sit amet nullam consequat, feugiat nisl tempus adipiscing sed cursus.</p>");
+};
+
+$(".icons-content div.hidden-div span").click(function clickClose () {
+    closeModal();
+});
+hiddenModalBg.click(function clickBgClose () {
+    closeModal();
+});
 
 selectLi.each(function (index) {
     $(this).click(function () {
-        hiddenDiv.append("<span class='close'>&times;</span>", "<h2>Nisl feugiat adipiscing</h2>",
-        "<p>Lorem ipsum dolor sit amet nullam consequat, feugiat nisl tempus adipiscing sed cursus.</p>");
+        openModal();
         hiddenDiv.append($(this).clone());
-        $(".icons-content > div.hidden-div > li > a > i").css({"font-size": "36px",
-         "color": "#ee6588"});
-        hiddenDiv.fadeIn().css("z-index", "1000");
-        $(".icons-content .hidden-div .close").css({"position": "absolute",
-            "font-size": "40px", "right": "40px", "top": "0", "cursor": "pointer"})
-        $(".hidden-modal-bg").fadeIn();
-        selectLi.css("pointer-events", "none"); // for block more than 1 <li> in hidden-div
-        closeModal();
     });
 });
 
 
 
-// SLİDER CAROUSEL, global variables
+// SLIDER CAROUSEL, global variables
 var slider = $(".slider-content .slider-wrapper .slider");
 var articles = $(".slider-content .slider-wrapper .slider article");
 
@@ -102,22 +106,32 @@ function removeClassFromArticles (articles) {
         articles[i].classList.remove("active");
     }
 }
+
+var slider_active = false;
 function sliderMove (i) {
-    slider_wrapper_width = $('.slider-wrapper').width();
-    article_width = $('.slider-wrapper article').width();
-    article_margin = parseInt( $('.slider-wrapper article').css('marginLeft'));
-    slide_i = ( (slider_wrapper_width/2-article_width/2)-(i*(article_width+article_margin)+article_margin) );
-    if (i == 0) {
-        slide_i = 0;
-    } else if (i == articles.length - 1) {
-        slide_i = -(i+1)*(article_width+article_margin)+slider_wrapper_width-article_margin;
+    if (!slider_active) {
+        slider_active = true;
+        slider_wrapper_width = $('.slider-wrapper').width();
+        article_width = $('.slider-wrapper article').width();
+        article_margin = parseInt( $('.slider-wrapper article').css('marginLeft'));
+        slide_i = ( (slider_wrapper_width/2-article_width/2)-(i*(article_width+article_margin)+article_margin) );
+        if (i == 0) {
+            slide_i = 0;
+        } else if (i == articles.length - 1) {
+            slide_i = -(i+1)*(article_width+article_margin)+slider_wrapper_width-article_margin;
+        }
+
+        $(".slider").animate({"left": slide_i}, 1000, function() {
+            slider_active = false;
+        });
     }
-    $(".slider").animate({"left": slide_i}, 1000);
 }
 
 
 // function that is run when page onload
 window.onload = function onLoad () {
+// $(document).ready(function() {
+// });
 
     articles[0].classList.add("active");
     $indicators_div = $('<div class="indicators" />').appendTo(".slider-wrapper")
@@ -131,24 +145,28 @@ window.onload = function onLoad () {
 
     $indicators_div.children('a').each(function (index) {
         $(this).click(function () {
-            removeClassFromIndicators(indicators);
-            $(this).addClass("active");
+            if (!slider_active) {
+                removeClassFromIndicators(indicators);
+                $(this).addClass("active");
 
-            removeClassFromArticles(articles);
-            articles[index].classList.add("active");
+                removeClassFromArticles(articles);
+                articles[index].classList.add("active");
 
-            sliderMove(index);
+                sliderMove(index);
+            }
         });
     });
     slider.children('article').each(function (index) {
         $(this).click(function () {
-            removeClassFromIndicators(indicators);
-            indicators[index].classList.add("active");
+            if (!slider_active) {
+                removeClassFromIndicators(indicators);
+                indicators[index].classList.add("active");
 
-            removeClassFromArticles(articles);
-            $(this).addClass("active");
+                removeClassFromArticles(articles);
+                $(this).addClass("active");
 
-            sliderMove(index);
+                sliderMove(index);
+            }
         });
     });
 };
