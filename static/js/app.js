@@ -30,18 +30,28 @@ $(document).ready(function animation () {
     $(".main-content div").hide().fadeIn(1000);
 });
 
-
 // languages mouse over function
 var languages = $("header > div > a");
 var hiddenUL = $("header > div > ul");
+var menu_active = false;
 languages.hover(function showUL () {
-    hiddenUL.slideDown();
+    if (!menu_active) {
+        menu_active = true;
+        hiddenUL.slideDown(function() {
+            menu_active = false;
+        });
+    }
 }, function hideUL () {
     hiddenUL.slideUp();
 });
 
 hiddenUL.hover(function () {
-    hiddenUL.stop(true, false).slideDown();
+    if (!menu_active) {
+        menu_active = true;
+        hiddenUL.stop(true, false).slideDown(function() {
+            menu_active = false;
+        });
+    }
 }, function () {
     hiddenUL.slideUp();
 });
