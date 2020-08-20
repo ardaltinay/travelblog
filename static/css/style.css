@@ -180,7 +180,7 @@ header nav ul li a:hover {
     background-color: #fff;
     text-align: center;
 }
-.icons-content div {
+.icons-content > div {
     display: inline-block;
     padding: 50px 0;
     width: 60%;

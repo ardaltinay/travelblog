@@ -41,7 +41,7 @@ languages.hover(function showUL () {
 });
 
 hiddenUL.hover(function () {
-    hiddenUL.stop().slideDown();
+    hiddenUL.stop(true, false).slideDown();
 }, function () {
     hiddenUL.slideUp();
 });
@@ -52,7 +52,7 @@ hiddenUL.hover(function () {
 var selectLi = $(".icons-content > div > ul > li:nth-child(n)");
 
 // create a hidden div
-$(".icons-content").append("<div class='hidden-div'></div>");
+$(".icons-content").append("<div class='hidden-div'><span class='close'>&times;</span><div></div></div>");
 var hiddenDiv = $(".icons-content .hidden-div");
 
 // create a hidden background
@@ -63,7 +63,7 @@ var hiddenModalBg = $("body .hidden-modal-bg");
 function closeModal () {
     hiddenDiv.hide(500);
     hiddenModalBg.fadeOut();
-    hiddenDiv.empty();
+    hiddenDiv.children('div').empty();
     selectLi.css("pointer-events", "all");
 };
 
@@ -71,7 +71,7 @@ function openModal () {
     hiddenDiv.fadeIn();
     hiddenModalBg.fadeIn();
     selectLi.css("pointer-events", "none"); // for block more than 1 <li> in hidden-div
-    hiddenDiv.append("<span class='close'>&times;</span>", "<h2>Nisl feugiat adipiscing</h2>",
+    hiddenDiv.children('div').append("<h2>Nisl feugiat adipiscing</h2>",
         "<p>Lorem ipsum dolor sit amet nullam consequat, feugiat nisl tempus adipiscing sed cursus.</p>");
 };
 
@@ -85,7 +85,7 @@ hiddenModalBg.click(function clickBgClose () {
 selectLi.each(function (index) {
     $(this).click(function () {
         openModal();
-        hiddenDiv.append($(this).clone());
+        hiddenDiv.children('div').append($(this).clone());
     });
 });
 
