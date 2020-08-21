@@ -61,7 +61,7 @@ header div ul {
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 header div ul a li {
-    padding: 10px 100px 10px 10px;
+    padding: 10px 60px 10px 10px;
     cursor: pointer;
 }
 header div ul a li:hover {
@@ -448,6 +448,16 @@ footer div .fa:hover {
     color: #ee6588;
 }
 
+/* flag icons css */
+.flag-icon-tr {
+    background-image: url(../img/tr.svg);
+}
+.flag-icon-us {
+    background-image: url(../img/us.svg);
+}
+.flag-icon-fr {
+    background-image: url(../img/fr.svg);
+}
 /* responsive */
 @media screen and (max-width: 575.98px) {
     header nav {
