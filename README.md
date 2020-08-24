@@ -6,4 +6,5 @@
 
 # NPM
 ```npm install node-sass clean-css-cli --save-dev```
+
 ```npm run compile```
