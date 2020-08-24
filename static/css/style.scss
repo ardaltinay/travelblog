@@ -10,6 +10,17 @@
 
 body {
   background-image: url(../img/bg.jpg);
+
+
+  .hidden-modal-bg {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    opacity: 0.7;
+    background-color: rgba(213, 213, 213, 0.7);
+  }
 }
 
 #hidden-bg {
@@ -43,10 +54,38 @@ header {
     text-decoration: none;
     color: #bbbbbb;
     transition: color 0.4s ease-in-out;
+  }
 
-    &:hover {
-      color: #ee6588;
+  div {
+    position: relative;
+
+    ul {
+      position: absolute;
+      list-style: none;
+      background-color: #fff;
+      top: 49px;
+      display: none;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+
+      a li {
+        padding: 10px 50px 10px 10px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #fafafa;
+          transition: background-color 0.4s ease-in-out;
+        }
+      }
     }
+  }
+
+  > div > a {
+    margin-right: 20px;
+    padding: 20px 20px 20px 10px;
+  }
+
+  a:hover {
+    color: #ee6588;
   }
 
   .fa-bars {
@@ -173,11 +212,38 @@ header {
   background-color: #fff;
   text-align: center;
 
-  div {
+  > div {
     display: inline-block;
     padding: 50px 0;
     width: 60%;
+  }
 
+  .hidden-div {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid #ee6588;
+    background-color: #fff;
+    width: auto;
+    padding: 20px 0;
+    z-index: 102;
+
+    .close {
+      position: absolute;
+      font-size: 40px;
+      right: 40px;
+      top: 0;
+      cursor: pointer;
+    }
+
+    li {
+      list-style: none;
+    }
+  }
+
+  div {
     h2 {
       color: #ee6588;
       font-size: 32px;
@@ -197,6 +263,11 @@ header {
       padding: 50px 0;
 
       li {
+        &:nth-child(n) {
+          list-style: none;
+          margin-top: 10px;
+        }
+
         .fa {
           font-size: 36px;
           color: #ee6588;
@@ -218,7 +289,17 @@ header {
           height: 1px;
           background-color: #d5d5d5;
         }
+
+        &:nth-child(n) a {
+          display: inline-block;
+          cursor: pointer;
+        }
       }
+    }
+
+    &.hidden-div li a i {
+      font-size: 36px;
+      color: #ee6588;
     }
   }
 }
@@ -454,6 +535,26 @@ footer {
       }
     }
   }
+}
+
+/* flag icons css */
+
+.flag-icon-tr {
+  background-image: url(../img/tr.svg);
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.flag-icon-us {
+  background-image: url(../img/us.svg);
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.flag-icon-fr {
+  background-image: url(../img/fr.svg);
+  font-size: 16px;
+  margin-right: 10px;
 }
 
 /* responsive */

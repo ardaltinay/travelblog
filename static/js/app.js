@@ -183,13 +183,13 @@ window.onload = function onLoad () {
 
 
 
-// homework-1
+// practice-1
 function reverseString (str) {
     var newString = str.split("").reverse().join("");
     return newString;
 };
 
-// homework-2
+// practice-2
 function convertToSlug (text) {
     var from = "üöıçğ·/_,:;ÇĞ";
     var to   = "uoicg------cg";
@@ -202,19 +202,19 @@ function convertToSlug (text) {
         .replace(/[^\w-]+/g,'');
 }
 
-// homework-3
+// practice-3
 function degreeConverterF (deg) {
     var newValue = deg * 1.8 + 32;
     // return deg + " °C = " + newValue + " °F";
     return `${deg} °C = ${newValue} °F`;
 };
 
-// homework-4            // document.referrer for previous URL
+// practice-4            // document.referrer for previous URL
 function getURL () {     // window.location.pathname --> without https
     return document.URL; // window.location.href --> same result
 };
 
-// homework-5
+// practice-5
 function getExtension (name) {
     var fileExtension = /\.[0-9a-z]+$/i;
     return name.match(fileExtension)[0];
@@ -225,7 +225,7 @@ function getExtension2 (name) {
     return words[words.length-1];
 };
 
-// homework-6
+// practice-6
 function getMin (arr) {
    var min = Math.min.apply(null, arr);
    return "value = " + min + " index = " + arr.indexOf(min);
@@ -234,3 +234,37 @@ function getMax (arr) {
     var max = Math.max.apply(null, arr);
     return "value = " + max + " index = " + arr.indexOf(max);
 };
+
+
+let myArray = [6, 54, 345, "arda", "berkay", 43];
+let myAges = [43, 4, 23, 78, 16, 17, 28];
+
+// practice-7
+myArray.forEach(function (x) {     // easy way to for loop
+   return x;
+});
+
+// practice-8
+let greaterThan18 = myAges.filter(function (age) {  // array filter method
+    if(age >= 18) {
+        return true;
+    }
+});
+
+// practice-9
+let mapAges = myAges.map(function (age) {     // array map method
+    return age * 10;
+});
+
+// practice-10
+let sortAges = myAges.sort(function(a,b) {    // array sort method, output = [4, 16, 17, 23, 28, 43, 78]
+    return a-b;
+});
+
+// practice-11
+let ageSum = myAges.reduce(function(total, age) {     // array reduce method, output = 209
+    return total + age;
+});
+
+
+
