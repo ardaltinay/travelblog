@@ -182,35 +182,42 @@ window.onload = function onLoad () {
 };
 
 // Ajax.html Elevation Finder
-    // Variables
-var buttonElevation = $("div.input > div > input[type=submit]:nth-child(6)");
-var resultValue = $("div.input > div > input[type=text]:nth-child(4)");
-var lat = $("div.input > div > input[type=number]:nth-child(2)");
-var lng = $("div.input > div > input[type=number]:nth-child(3)");
+// Variables
+var buttonElevation = $("div.elevation-finder > div input[type=submit]:nth-child(5)");
+var buttonReset = $("div.elevation-finder > div input[type=submit]:nth-child(6)");
+var resultValue = $("div.elevation-finder > div input[type=text]:nth-child(3)");
+var lat = $("div.elevation-finder > div input[type=number]:nth-child(1)");
+var lng = $("div.elevation-finder > div input[type=number]:nth-child(2)");
 
-    // Functions
-        // search function
+// Functions
+// search function
 function searchElevation () {
     fetch(`https://api.stormglass.io/v2/elevation/point?lat=${Number(lat.val())}&lng=${Number(lng.val())}`, {
         headers: {
             'Authorization': 'd8de5260-e613-11ea-a78a-0242ac130002-d8de531e-e613-11ea-a78a-0242ac130002'
         }
     }).then((response) => response.json()).then((jsonData) => {
-        resultValue.val(`${Math.round(jsonData.data.elevation)} meter`);
+        resultValue.val(`${Math.round(jsonData.data.elevation)} meters`);
     });
 }
-        // reset function
+
+// reset function
 function resetValues () {
     lat.val("");
     lng.val("");
     resultValue.val("");
 }
-    // Events
-buttonElevation.click(function() {
+
+// Events
+buttonElevation.click(function(e) {
+    e.preventDefault();
     searchElevation();
+    return false;
 });
-$("div.input > div > input[type=submit]:nth-child(7)").click(function() {
+buttonReset.click(function(e) {
+    e.preventDefault();
     resetValues();
+    return false;
 });
 
 

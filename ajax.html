@@ -56,15 +56,19 @@
             <div class="image">
                 <img src="static/img/pic03.jpg">
             </div>
-            <div class="input">
+            <div class="elevation-finder">
                 <div>
                     <h2>Elevation Finder</h2>
-                    <input type="number" name="latitude" placeholder="Enter Latitude">
-                    <input type="number" name="longitude" placeholder="Enter Longitude">
-                    <input type="text" name="value" placeholder="Result" disabled>
-                    <br>
-                    <input type="submit" name="button" value="Search">
-                    <input type="submit" name="button" value="Reset">
+                    <p>stormglass.io API<br />Point Requests are used to retrieve data for a single coordinate. 50 requests per day.<br />
+                    <code>GET https://api.stormglass.io/v2/elevation/point</code></p>
+                    <form>
+                        <input type="number" name="latitude" placeholder="Enter Latitude">
+                        <input type="number" name="longitude" placeholder="Enter Longitude">
+                        <input type="text" name="value" placeholder="Result" disabled>
+                        <br>
+                        <input type="submit" name="button" value="Search">
+                        <input type="submit" name="button" value="Reset">
+                    </form>
                 </div>
             </div>
             <div class="content">
