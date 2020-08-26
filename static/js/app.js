@@ -142,43 +142,44 @@ function sliderMove (i) {
 window.onload = function onLoad () {
 // $(document).ready(function() {
 // });
+    if (articles.length) {
+        articles[0].classList.add("active");
+        $indicators_div = $('<div class="indicators" />').appendTo(".slider-wrapper")
 
-    articles[0].classList.add("active");
-    $indicators_div = $('<div class="indicators" />').appendTo(".slider-wrapper")
+        for (var i = 0; i < articles.length; i++) {
+            $('<a></a>').appendTo($indicators_div);
+        }
 
-    for (var i = 0; i < articles.length; i++) {
-        $('<a></a>').appendTo($indicators_div);
+        var indicators = $(".slider-content .slider-wrapper .indicators a");
+        indicators[0].classList.add("active");
+
+        $indicators_div.children('a').each(function (index) {
+            $(this).click(function () {
+                if (!slider_active) {
+                    removeClassFromIndicators(indicators);
+                    $(this).addClass("active");
+
+                    removeClassFromArticles(articles);
+                    articles[index].classList.add("active");
+
+                    sliderMove(index);
+                }
+            });
+        });
+        slider.children('article').each(function (index) {
+            $(this).click(function () {
+                if (!slider_active) {
+                    removeClassFromIndicators(indicators);
+                    indicators[index].classList.add("active");
+
+                    removeClassFromArticles(articles);
+                    $(this).addClass("active");
+
+                    sliderMove(index);
+                }
+            });
+        });
     }
-
-    var indicators = $(".slider-content .slider-wrapper .indicators a");
-    indicators[0].classList.add("active");
-
-    $indicators_div.children('a').each(function (index) {
-        $(this).click(function () {
-            if (!slider_active) {
-                removeClassFromIndicators(indicators);
-                $(this).addClass("active");
-
-                removeClassFromArticles(articles);
-                articles[index].classList.add("active");
-
-                sliderMove(index);
-            }
-        });
-    });
-    slider.children('article').each(function (index) {
-        $(this).click(function () {
-            if (!slider_active) {
-                removeClassFromIndicators(indicators);
-                indicators[index].classList.add("active");
-
-                removeClassFromArticles(articles);
-                $(this).addClass("active");
-
-                sliderMove(index);
-            }
-        });
-    });
 };
 
 // Ajax.html Elevation Finder
