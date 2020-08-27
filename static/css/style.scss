@@ -19,6 +19,25 @@ body {
     opacity: 0.7;
     background-color: rgba(213, 213, 213, 0.7);
   }
+  #hidden-fixed-bottom {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: #a08989;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 10;
+    display: none;
+    span {
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
 }
 
 #hidden-bg {

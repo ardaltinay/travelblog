@@ -226,6 +226,36 @@ buttonReset.click(function(e) {
 });
 
 
+// Showing the hidden fixed div when scroll
+var position = $(window).scrollTop();
+var hiddenFixed = $("#hidden-fixed-bottom");
+
+$(window).scroll(function() {
+    var scroll = $(window).scrollTop();
+    var infoClose = localStorage.getItem("info-close");
+    if (infoClose) {
+        $(window).off('scroll')
+        position = window.outerHeight - 200;
+    } else {
+        if (scroll > position + 200) {
+            hiddenFixed.fadeIn();
+            hiddenFixed.css("display", "flex");
+        };
+    };
+});
+
+// Closing the hidden fixed div when click times
+var iconClose = $("#hidden-fixed-bottom > span");
+
+function clickIconClose () {
+    hiddenFixed.fadeOut();
+    localStorage.setItem("info-close", true);
+};
+iconClose.click(function () {
+    clickIconClose();
+});
+
+
 
 // practice-1
 function reverseString (str) {
