@@ -518,7 +518,6 @@ footer {
   padding: 35px;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
-
   div {
     color: #bbbbbb;
 
@@ -744,6 +743,10 @@ body > section > main > div.image > img {
 }
 body > section > main > div.elevation-finder {
   background-color: #fff;
+  form {
+    margin-top: 20px;
+    padding-bottom: 30px;
+  }
   div {
     width: 90%;
     margin: auto;
