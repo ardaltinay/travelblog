@@ -199,15 +199,19 @@ function searchElevation () {
         }
     }).then((response) => response.json()).then((jsonData) => {
         resultValue.val(`${Math.round(jsonData.data.elevation)} meters`);
+        if (!(lat.val()) || !(lng.val())) {
+            alert("Please enter both data!")
+            resultValue.val("");
+        };
     });
-}
+};
 
 // reset function
 function resetValues () {
     lat.val("");
     lng.val("");
     resultValue.val("");
-}
+};
 
 // Events
 buttonElevation.click(function(e) {
