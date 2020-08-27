@@ -807,10 +807,20 @@ body > section > main > div.content {
     width: 90%;
     margin: auto;
   }
+  h3 {
+    color: #ee6588;
+    font-size: 26px;
+    width: 90%;
+    margin: auto;
+  }
   p {
     color: #656565;
     width: 90%;
     margin: auto;
     padding: 20px 0;
+  }
+  pre {
+    border: none;
+    margin-top: 20px;
   }
 }
