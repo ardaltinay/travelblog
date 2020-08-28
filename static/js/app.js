@@ -235,7 +235,6 @@ $(window).scroll(function() {
     var infoClose = localStorage.getItem("info-close");
     if (infoClose) {
         $(window).off('scroll')
-        position = window.outerHeight - 200;
     } else {
         if (scroll > position + 200) {
             hiddenFixed.fadeIn();
