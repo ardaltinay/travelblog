@@ -235,11 +235,9 @@ $(window).scroll(function() {
     var infoClose = localStorage.getItem("info-close");
     if (infoClose) {
         $(window).off('scroll')
-    } else {
-        if (scroll > position + 200) {
-            hiddenFixed.fadeIn();
-            hiddenFixed.css("display", "flex");
-        };
+    } else if (scroll > position + 200) {
+        hiddenFixed.fadeIn();
+        hiddenFixed.css("display", "flex");
     };
 });
 
