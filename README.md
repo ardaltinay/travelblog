@@ -6,6 +6,5 @@
 - JQuery 3.5.1
 
 # NPM
-```npm install node-sass@4.14.1 clean-css-cli@4.3.0 --save-dev```
-
+```npm install node-sass@4.14.1 clean-css-cli@4.3.0 webpack@4.44.1 webpack-cli@3.3.12 jquery@3.5.1 --save-dev```
 ```npm run compile```
