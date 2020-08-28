@@ -27,7 +27,7 @@ $("#hidden-bg").click(function closeNavbar () {
 
 // animation
 $(document).ready(function animation () {
-    $(".main-content div").hide().fadeIn(1000);
+    $(".main-content div").fadeIn(1000).css("display","inline-block");
 });
 
 // languages mouse over function
