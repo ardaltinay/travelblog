@@ -144,7 +144,7 @@ window.onload = function onLoad () {
 // });
     if (articles.length) {
         articles[0].classList.add("active");
-        $indicators_div = $('<div class="indicators" />').appendTo(".slider-wrapper")
+        $indicators_div = $('<div class="indicators" />').appendTo(".slider-wrapper");
 
         for (var i = 0; i < articles.length; i++) {
             $('<a></a>').appendTo($indicators_div);
