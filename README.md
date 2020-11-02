@@ -1,4 +1,5 @@
 # travelblog
+https://pixelarity.com/items/demos/transit/magenta/index.html Sitesinin ekran görüntüsünü kullanarak sıfırdan oluşturduğum bir front-end tasarım.
 
 # Techs
 - normalize.css v8.0.1
